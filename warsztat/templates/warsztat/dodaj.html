@@ -1,0 +1,27 @@
+<style>
+    body { font-family: sans-serif; background: #f4f4f4; padding: 40px; display: flex; justify-content: center; }
+    .form-karta { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; width: 100%; }
+    h2 { color: #333; border-bottom: 2px solid #d4af37; padding-bottom: 10px; }
+    p { margin-bottom: 15px; }
+    input[type="text"], input[type="number"], input[type="date"] {
+        width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;
+    }
+    button {
+        background: #d4af37; color: white; border: none; padding: 10px 20px;
+        border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold;
+    }
+    button:hover { background: #b8962e; }
+    .powrot { display: block; text-align: center; margin-top: 15px; color: #666; text-decoration: none; font-size: 0.9em; }
+</style>
+
+<div class="form-karta">
+    <h2>
+    {% if edycja %} ✏️ Edytuj obrączkę {% else %} ✍️ Nowy Grawer {% endif %}
+</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Zapisz w rejestrze</button>
+    </form>
+    <a href="{% url 'lista_obraczek' %}" class="powrot">← Wróć do listy</a>
+</div>

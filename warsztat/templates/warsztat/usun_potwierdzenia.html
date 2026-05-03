@@ -1,0 +1,8 @@
+<h2>Czy na pewno chcesz usunąć tę obrączkę?</h2>
+<p>Surowiec: <strong>{{ obraczka.surowiec }}</strong></p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" style="background: red; color: white;">Tak, usuń trwale</button>
+    <a href="{% url 'lista_obraczek' %}">Anuluj</a>
+</form>
