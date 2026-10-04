@@ -25,7 +25,7 @@ class Obraczka(models.Model):
     def __str__(self):
         return f"Obrączka {self.surowiec}, {self.srednica} mm"
 
-class Meta:
-    verbose_name = "Obrączka"
-    verbose_name_plural = "Obrączki"
+    class Meta:
+        verbose_name = "Obrączka"
+        verbose_name_plural = "Obrączki"
 
